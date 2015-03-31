@@ -6,8 +6,9 @@
 
 <ul>
   <% @questions.each do |question| %>
+    <% @question = question %>
     <li>
-      <%= question.body %><% if current_user %><%= link_to "Answer", new_question_answer_path(question) %><% end %>
+      <%= question.body %>
       <% if question.answers.any? %>
         <ul>
           <% question.answers.order(is_first: :desc).each do |answer| %>
@@ -24,16 +25,22 @@
               <% end %>
 
             </li>
+
           <% end %>
+            <li>
+              <div id='new_answer_<%= @question.id %>'>
+                <% if current_user %><%= link_to "Answer", new_question_answer_path(question), remote: true %><% end %>
+              </div>
+            </li>
         </ul>
       <% end %>
     </li>
   <% end %>
 </ul>
 <% if current_user %>
-  <p><%= link_to "Ask a Question", new_question_path %></p>
+  <p><%= link_to "Ask a Question", new_question_path, id: "new_question", remote: true %></p>
   <p><%= link_to "Log Out", log_out_path %></p>
 <% else %>
-  <p><%= link_to "New User", new_user_path %></p>
-  <p><%= link_to "Log in", log_in_path %></p>
+  <p><%= link_to "New User", new_user_path, id: "new_user", remote: true %></p>
+  <p><%= link_to "Log in", log_in_path, id: "log_in", remote: true %></p>
 <% end %>
