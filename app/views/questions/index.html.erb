@@ -30,9 +30,8 @@
       <% if current_user %>
           <div id='new_answer_<%= @question.id %>'>
             <%= link_to "Answer", new_question_answer_path(question), remote: true %>
+          
           </div>
-      <% else %>
-        <h1>BANANANANA</h1>
       <% end %>
     </li>
   <% end %>

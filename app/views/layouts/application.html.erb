@@ -5,19 +5,43 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <%= stylesheet_link_tag "styles" %>
+  <link href='http://fonts.googleapis.com/css?family=Questrial|Poiret+One|Quicksand|Raleway' rel='stylesheet' type='text/css'>
 
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= flash[:alert] %>
-<%= flash[:notice] %>
+<div class="navbar">
+  <%= link_to "Sassy Overflow!", root_path, class:"title" %>
 
+    <% if current_user %>
+      <%= link_to "Ask a Question", new_question_path, id: "new_question", remote: true, class: "navlinkleft"%>
+      <%= link_to "Log Out", log_out_path, class: "navlinkright" %>
+    <% else %>
+      <%= link_to "New User", new_user_path, id: "new_user", remote: true, class: "navlinkleft" %>
+      <%= link_to "Log in", log_in_path, id: "log_in", remote: true, class: "navlinkright" %>
+    <% end %>
+
+
+</div>
+
+<%= flash[:alert] %>
+
+
+<div class="notice">
+<%= flash[:notice] %>
+</div>
+
+<div id="stuff">
+  stuff
+</div>
 <div class="container">
 
 <%= yield %>
 
 </div>
+
 
 </body>
 </html>

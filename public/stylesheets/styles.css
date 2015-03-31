@@ -1,0 +1,55 @@
+.notice {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1em;
+  color: #5B6263;
+}
+
+.navbar {
+  width: 100%
+  height: 40px;
+  background-color: #FFFFC2;
+  text-align: center;
+
+}
+
+.title{
+  color: #F76576;
+  font-size: 2.3em;
+  font-family: 'Poiret One', cursive;
+}
+
+.navlinkleft {
+  float: left;
+  color: #F76576;
+  font-size: 1.6em;
+  font-family: 'Poiret One', cursive;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.navlinkright {
+  float: right;
+  color: #F76576;
+  font-size: 1.6em;
+  font-family: 'Poiret One', cursive;
+  padding-right: 20px;
+  padding-top: 20px;
+
+}
+
+.login_form {
+  float: right;
+  font-size: 1em;
+  width: 30%;
+  height: 50%;
+  background-color: #C4F8FF;
+  padding: 20px;
+}
+
+.form {
+  float: right;
+}
+
+.login_form input {
+  float: right;
+}
