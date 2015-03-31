@@ -18,7 +18,7 @@ describe User do
   describe '.authenticate' do
     it 'logs in a user with a password and fails on incorrect password' do
       user = FactoryGirl.create(:user)
-      expect(User.authenticate("dogdog@dog.dog", "dog")).to eq(user)
+      expect(User.authenticate(user.email, user.password)).to eq(user)
       expect(User.authenticate("dogdog@dog.dog", "cat")).to eq(nil)
     end
   end

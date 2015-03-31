@@ -23,16 +23,16 @@
               <% if current_user && !current_user.voted?(answer) %>
                 <%= link_to "Vote", answer_votes_path(answer), :method =>"Post" %>
               <% end %>
-
             </li>
-
           <% end %>
-            <li>
-              <div id='new_answer_<%= @question.id %>'>
-                <% if current_user %><%= link_to "Answer", new_question_answer_path(question), remote: true %><% end %>
-              </div>
-            </li>
         </ul>
+      <% end %>
+      <% if current_user %>
+          <div id='new_answer_<%= @question.id %>'>
+            <%= link_to "Answer", new_question_answer_path(question), remote: true %>
+          </div>
+      <% else %>
+        <h1>BANANANANA</h1>
       <% end %>
     </li>
   <% end %>

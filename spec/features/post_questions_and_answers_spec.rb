@@ -29,7 +29,7 @@ describe "the post questions process" do
 end
 
 describe "the post answer process" do
-  it 'creates an answer' do
+  it 'creates an answer', js: true do
     user = FactoryGirl.create(:user)
     question = FactoryGirl.create(:question)
     visit questions_path
@@ -37,7 +37,6 @@ describe "the post answer process" do
     fill_in 'Email', :with => user.email
     fill_in 'Password', :with => user.password
     click_on 'Log in'
-    visit questions_path
     click_on 'Answer'
     fill_in 'Answer', :with => "Scratch, sniff and sleep"
     click_on 'Create Answer'

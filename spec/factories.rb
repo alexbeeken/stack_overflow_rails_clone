@@ -5,9 +5,8 @@ FactoryGirl.define do
   end
 
   factory(:user) do
-    email("dogdog@dog.dog")
-    password("dog")
-
+    sequence(:email) { |n| "dogdog#{n}@dog.dog" }
+    password("12345678")
   end
 
   factory(:answer) do

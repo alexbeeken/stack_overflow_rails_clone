@@ -2,10 +2,10 @@ require "rails_helper"
 describe "the choose the question owners favorite answer process" do
   it 'displays a star next to answers that belong to a users question' do
     answer = FactoryGirl.create(:answer)
-    visit questions_path
+    visit '/'
     click_on 'Log in'
-    fill_in 'Email', :with => "dogdog@dog.dog"
-    fill_in 'Password', :with => "dog"
+    fill_in 'Email', :with => answer.question.user.email
+    fill_in 'Password', :with => answer.question.user.password
     click_on 'Log in'
     expect(page).to have_content "Star"
   end
@@ -13,8 +13,8 @@ describe "the choose the question owners favorite answer process" do
     answer = FactoryGirl.create(:answer)
     visit questions_path
     click_on 'Log in'
-    fill_in 'Email', :with => "dogdog@dog.dog"
-    fill_in 'Password', :with => "dog"
+    fill_in 'Email', :with => answer.question.user.email
+    fill_in 'Password', :with => answer.question.user.password
     click_on 'Log in'
     click_on 'Star'
     expect(page).to have_content "successfully"
@@ -25,8 +25,8 @@ describe "the choose the question owners favorite answer process" do
       answer = FactoryGirl.create(:answer)
       visit questions_path
       click_on 'Log in'
-      fill_in 'Email', :with => "dogdog@dog.dog"
-      fill_in 'Password', :with => "dog"
+      fill_in 'Email', :with => answer.question.user.email
+      fill_in 'Password', :with => answer.question.user.password
       click_on 'Log in'
       click_on 'Vote'
       expect(page).to have_content "successfully"
@@ -34,6 +34,4 @@ describe "the choose the question owners favorite answer process" do
       expect(page).to_not have_content "Vote"
     end
   end
-
-
 end

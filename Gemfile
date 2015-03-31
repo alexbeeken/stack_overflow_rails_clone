@@ -21,6 +21,9 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'phantomjs'
+  gem 'poltergeist'
+  gem 'pry'
 end
 
 group :test do
@@ -28,7 +31,9 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
+
 group :production do
   gem 'rails_12factor'
 end
